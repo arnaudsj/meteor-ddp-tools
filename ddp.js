@@ -100,7 +100,10 @@ var commands = {
         methodArgs = this.parseArgs(methodArgs);
         console.log('[call]: ' + method + ' ' + JSON.stringify(methodArgs));
         this.call(method, methodArgs, function (err, res) {
-          if (opts.exit_on_results) process.exit(0);
+
+          if (opts.exit_on_results) {
+            process.exit(err ? 1 : 0);
+          }
         });
       }, opts);
     }
