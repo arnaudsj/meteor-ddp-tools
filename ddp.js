@@ -102,6 +102,7 @@ var commands = {
         this.call(method, methodArgs, function (err, res) {
 
           if (opts.exit_on_results) {
+            if (res) console.log(JSON.stringify(res));
             process.exit(err ? 1 : 0);
           }
         });
